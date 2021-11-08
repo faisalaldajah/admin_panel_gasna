@@ -8,9 +8,9 @@ class DataViewer extends StatelessWidget {
   final String title;
   final Icon icon;
   const DataViewer({
-    required this.icon,
-    required this.title,
-    required this.total,
+    this.icon,
+    this.title,
+    this.total,
   });
 
   @override
