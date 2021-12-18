@@ -1,9 +1,9 @@
-class UserData {
+class AdminUserData {
   final String name;
   final String phone;
   final String storeKey;
 
-  UserData({
+  AdminUserData({
     this.name,
     this.phone,
     this.storeKey,

@@ -1,18 +1,18 @@
 import 'package:admin_panel_gasna/Model/AmountData.dart';
 import 'package:admin_panel_gasna/Model/UserData.dart';
-import 'package:admin_panel_gasna/widgets/DataViewer.dart';
+import 'package:admin_panel_gasna/widgets/AdminDataViewer.dart';
 import 'package:flutter/material.dart';
 
-class ReportPage extends StatefulWidget {
+class AdminReportPage extends StatefulWidget {
   static const String id = 'report';
-  final List<DriverData> driverData;
-  final List<UserData> userData;
-  ReportPage({this.driverData, this.userData});
+  final List<AdminDriverData> driverData;
+  final List<AdminUserData> userData;
+  AdminReportPage({this.driverData, this.userData});
   @override
-  _ReportPageState createState() => _ReportPageState();
+  _AdminReportPageState createState() => _AdminReportPageState();
 }
 
-class _ReportPageState extends State<ReportPage> {
+class _AdminReportPageState extends State<AdminReportPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

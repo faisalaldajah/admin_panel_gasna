@@ -1,22 +1,22 @@
 import 'package:admin_panel_gasna/Model/AmountData.dart';
 import 'package:admin_panel_gasna/Model/UserData.dart';
 import 'package:admin_panel_gasna/Screen/Pakages.dart';
-import 'package:admin_panel_gasna/Screen/ReportPage.dart';
-import 'package:admin_panel_gasna/Screen/registration.dart';
+import 'package:admin_panel_gasna/Screens/ReportPage.dart';
+import 'package:admin_panel_gasna/Screens/registration.dart';
 import 'package:admin_panel_gasna/brand_colors.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
-class MainPage extends StatefulWidget {
+class AdminMainPage extends StatefulWidget {
   static const String id = 'mainpage';
 
   @override
-  _MainPageState createState() => _MainPageState();
+  _AdminMainPageState createState() => _AdminMainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
-  List<DriverData> driverdata = [];
-  List<UserData> userData = [];
+class _AdminMainPageState extends State<AdminMainPage> {
+  List<AdminDriverData> driverdata = [];
+  List<AdminUserData> userData = [];
   @override
   void initState() {
     super.initState();
@@ -54,7 +54,7 @@ class _MainPageState extends State<MainPage> {
             child: Center(
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, RegistrationPage.id);
+                  Navigator.pushNamed(context, AdminRegistrationPage.id);
                 },
                 child: Text(
                   'إضافة سائق',
@@ -78,7 +78,7 @@ class _MainPageState extends State<MainPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ReportPage(
+                          builder: (context) => AdminReportPage(
                                 driverData: driverdata,
                                 userData: userData,
                               )));
@@ -105,7 +105,7 @@ class _MainPageState extends State<MainPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => Pakages(driverdata)));
+                          builder: (context) => AdminPakages(driverdata)));
                 },
                 child: Text(
                   'الحزم',
@@ -125,12 +125,12 @@ class _MainPageState extends State<MainPage> {
     DatabaseReference userRef =
         FirebaseDatabase.instance.reference().child('users');
     var keys;
-    DriverData dirver;
-    UserData user;
+    AdminDriverData dirver;
+    AdminUserData user;
     driverRef.once().then((DataSnapshot snapshot) {
       keys = snapshot.value.keys;
       for (var key in keys) {
-        dirver = DriverData(
+        dirver = AdminDriverData(
           amount: snapshot.value[key]['amount']['amount'],
           status: snapshot.value[key]['amount']['status'],
           transNumber: snapshot.value[key]['amount']['transNumber'],
@@ -145,7 +145,7 @@ class _MainPageState extends State<MainPage> {
     userRef.once().then((DataSnapshot snapshot) {
       keys = snapshot.value.keys;
       for (var key in keys) {
-        user = UserData(
+        user = AdminUserData(
           name: snapshot.value[key]['fullname'],
           phone: snapshot.value[key]['phone'],
           storeKey: key,

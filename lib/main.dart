@@ -1,11 +1,11 @@
-import 'package:admin_panel_gasna/Screen/ReportPage.dart';
-import 'package:admin_panel_gasna/Screen/login.dart';
-import 'package:admin_panel_gasna/Screen/registration.dart';
+import 'package:admin_panel_gasna/Screens/AdminLogin.dart';
+import 'package:admin_panel_gasna/Screens/ReportPage.dart';
+import 'package:admin_panel_gasna/Screens/registration.dart';
 import 'package:admin_panel_gasna/globalvariabels.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'Screen/MainPage.dart';
+import 'Screen/AdminMainPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,12 +24,12 @@ class MyApp extends StatelessWidget {
         fontFamily: 'JF-Flat-regular',
         primarySwatch: Colors.blue,
       ),
-      initialRoute: (currentFirebaseUser == null) ? LoginPage.id : MainPage.id,
+      initialRoute: (currentFirebaseUser == null) ? AdminLoginPage.id : AdminMainPage.id,
       routes: {
-        MainPage.id: (context) => MainPage(),
-        RegistrationPage.id: (context) => RegistrationPage(),
-        LoginPage.id: (context) => LoginPage(),
-        ReportPage.id: (context) => ReportPage(),
+        AdminMainPage.id: (context) => AdminMainPage(),
+        AdminRegistrationPage.id: (context) => AdminRegistrationPage(),
+        AdminLoginPage.id: (context) => AdminLoginPage(),
+        AdminReportPage.id: (context) => AdminReportPage(),
       },
     );
   }

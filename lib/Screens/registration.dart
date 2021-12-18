@@ -1,21 +1,20 @@
-import 'package:admin_panel_gasna/Screen/MainPage.dart';
+import 'package:admin_panel_gasna/Screen/AdminMainPage.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:admin_panel_gasna/widgets/GradientButton.dart';
 import 'package:admin_panel_gasna/widgets/ProgressDialog.dart';
 import '../globalvariabels.dart';
 
-class RegistrationPage extends StatefulWidget {
+class AdminRegistrationPage extends StatefulWidget {
   static const String id = 'register';
 
   @override
-  _RegistrationPageState createState() => _RegistrationPageState();
+  _AdminRegistrationPageState createState() => _AdminRegistrationPageState();
 }
 
-class _RegistrationPageState extends State<RegistrationPage> {
+class _AdminRegistrationPageState extends State<AdminRegistrationPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   var fullNameController = TextEditingController();
@@ -72,7 +71,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
       currentFirebaseUser = user;
 
       //Take the user to the mainPage
-      Navigator.pushNamed(context, MainPage.id);
+      Navigator.pushNamed(context, AdminMainPage.id);
     }
   }
 

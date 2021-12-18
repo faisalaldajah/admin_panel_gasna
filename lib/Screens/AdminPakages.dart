@@ -5,7 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class Pakages extends StatefulWidget {
-  final List<DriverData> driverData;
+  final List<AdminDriverData> driverData;
   
   Pakages(this.driverData);
 

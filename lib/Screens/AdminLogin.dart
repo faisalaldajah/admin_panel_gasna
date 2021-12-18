@@ -1,22 +1,22 @@
+import 'package:admin_panel_gasna/Screens/AdminMainPage.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:admin_panel_gasna/brand_colors.dart';
-import 'package:admin_panel_gasna/Screen/registration.dart';
+import 'package:admin_panel_gasna/Screens/registration.dart';
 import 'package:admin_panel_gasna/widgets/GradientButton.dart';
 import 'package:admin_panel_gasna/widgets/ProgressDialog.dart';
-import 'mainpage.dart';
 
-class LoginPage extends StatefulWidget {
+class AdminLoginPage extends StatefulWidget {
   static const String id = 'login';
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _AdminLoginPageState createState() => _AdminLoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _AdminLoginPageState extends State<AdminLoginPage> {
   final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
 
   void showSnackBar(String title) {
@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
       userRef.once().then((DataSnapshot snapshot) {
         if (snapshot.value != null) {
           Navigator.pushNamedAndRemoveUntil(
-              context, MainPage.id, (route) => false);
+              context, AdminMainPage.id, (route) => false);
         }
       });
     }
@@ -176,7 +176,7 @@ class _LoginPageState extends State<LoginPage> {
                 TextButton(
                   onPressed: () {
                     Navigator.pushNamedAndRemoveUntil(
-                        context, RegistrationPage.id, (route) => false);
+                        context, AdminRegistrationPage.id, (route) => false);
                   },
                   child: Text(
                     'لا تمتلك حساب، انشيء حساب جديد',

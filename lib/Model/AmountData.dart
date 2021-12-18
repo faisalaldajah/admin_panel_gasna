@@ -1,4 +1,4 @@
-class DriverData {
+class AdminDriverData {
   final String amount;
   final String status;
   final String transNumber;
@@ -6,7 +6,7 @@ class DriverData {
   final String number;
   final String storeKey;
 
-  DriverData({
+  AdminDriverData({
     this.amount,
     this.status,
     this.transNumber,
